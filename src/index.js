@@ -24,7 +24,6 @@ export default {
       return json({ error: "Missing messages[]" }, 400, request);
     }
 
-    // Basic “GV-ish” system prompt (we’ll expand later)
     const system = {
       role: "system",
       content:
@@ -39,8 +38,6 @@ export default {
       temperature: 0.7,
     };
 
-    // Call OpenAI Chat Completions endpoint
-    // NOTE: You must set OPENAI_API_KEY as a Worker secret.
     const resp = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
